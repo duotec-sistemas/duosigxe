@@ -6,6 +6,15 @@
         <Projects Include="ModeloCadastro\ModeloCadastro.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Menu\DuoSig.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FrameworkDuosigXe\FrameworkDuosigXe.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DP1001 - Configurador TEF ACBR\DP1000.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -23,14 +32,41 @@
     <Target Name="ModeloCadastro:Make">
         <MSBuild Projects="ModeloCadastro\ModeloCadastro.dproj" Targets="Make"/>
     </Target>
+    <Target Name="DuoSig">
+        <MSBuild Projects="Menu\DuoSig.dproj"/>
+    </Target>
+    <Target Name="DuoSig:Clean">
+        <MSBuild Projects="Menu\DuoSig.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DuoSig:Make">
+        <MSBuild Projects="Menu\DuoSig.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FrameworkDuosigXe">
+        <MSBuild Projects="FrameworkDuosigXe\FrameworkDuosigXe.dproj"/>
+    </Target>
+    <Target Name="FrameworkDuosigXe:Clean">
+        <MSBuild Projects="FrameworkDuosigXe\FrameworkDuosigXe.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FrameworkDuosigXe:Make">
+        <MSBuild Projects="FrameworkDuosigXe\FrameworkDuosigXe.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DP1000">
+        <MSBuild Projects="DP1001 - Configurador TEF ACBR\DP1000.dproj"/>
+    </Target>
+    <Target Name="DP1000:Clean">
+        <MSBuild Projects="DP1001 - Configurador TEF ACBR\DP1000.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DP1000:Make">
+        <MSBuild Projects="DP1001 - Configurador TEF ACBR\DP1000.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="ModeloCadastro"/>
+        <CallTarget Targets="ModeloCadastro;DuoSig;FrameworkDuosigXe;DP1000"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="ModeloCadastro:Clean"/>
+        <CallTarget Targets="ModeloCadastro:Clean;DuoSig:Clean;FrameworkDuosigXe:Clean;DP1000:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="ModeloCadastro:Make"/>
+        <CallTarget Targets="ModeloCadastro:Make;DuoSig:Make;FrameworkDuosigXe:Make;DP1000:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
